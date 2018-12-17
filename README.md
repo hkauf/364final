@@ -11,21 +11,21 @@ My app allows users to search "The Movie Database" for movies and movie recommen
 ##**Routes**##
 
 ---------------
-* / = index.html
-* /login = login.html
-* /logout = index.html
-* /register = register.html
+* / -> index.html
+* /login -> login.html
+* /logout -> index.html
+* /register -> register.html
 * /secret
-* /movie_search = movie_form.html
-* /movie_results = movie_results.html
-* /recommendation_info = search_recs.html
-* /movies = all_movies.html
-* /recommendations = all_recommendations.html
-* /createwatchlist = create_watchlist.html
-* /watchlists = watchlists.html
-* /watchlist/<id_num> = watchlist.html
+* /movie_search -> movie_form.html
+* /movie_results -> movie_results.html
+* /recommendation_info -> search_recs.html
+* /movies -> all_movies.html
+* /recommendations -> all_recommendations.html
+* /createwatchlist -> create_watchlist.html
+* /watchlists -> watchlists.html
+* /watchlist/<id_num> -> watchlist.html
 * /delete/<watchlist> 
-* /update/ <watchlist> = updated_name.html
+* /update/ <watchlist> -> updated_name.html
 
 
 ##**Code Requirements**##
