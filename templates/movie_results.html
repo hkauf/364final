@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block main_content %}
+{% if form %}
+<h1>Search Form </h1>
+	<form method = 'GET' action="">
+		{{ form.hidden_tag() }}
+      	<p>{{ form.search.label }}{{ form.search() }}</p>
+      	{{ form.submit() }}
+  	</form>
+{% endif %}
+<div>
+	{% for message in get_flashed_messages() %}
+	{{ message }}
+	{% endfor %}
+</div>
+<h2> Movie Info: </h2>
+{% if title %}
+	<b>{{ title.title }} <br>
+	Plot:
+	{{ title.plot }} <br>
+
+{% else %}
+Movie did not search. Please try again.
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block main_content %}
+
+<h2>All Movie Recommendations</h2>
+
+<br>
+<ul>
+{% for rec in all_recommendations %}
+<li>
+  <h4>Original Movie Searched: {{ rec.original_movie_title }}
+  	<br>
+  Recommendations: {{ rec.recommendations }}</h4>
+</li>
+<br>
+{% endfor %}
+</ul>
+
+{% if not all_recommendations %}
+There are no saved movie recommendations.
+{% endif %}
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+<a href="{{ url_for('search_recs')}}">Return to search for new movie recommendations</a>
+{% endblock %}

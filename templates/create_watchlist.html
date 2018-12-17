@@ -1,0 +1,19 @@
+
+{% extends 'index.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block main_content %}
+
+<h1>Create a new Movie Watch List</h1>
+
+<form action="" method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.name.label }} {{ form.name() }}
+	{{ form.movies_included.label }} {{ form.movies_included() }}
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+
+{% endblock %}

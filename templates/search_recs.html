@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% block navigation %}
+	{{ super() }}
+{% endblock %}
+
+{% block main_content %}
+	<form action= "" method = "POST">
+		{{ form.hidden_tag() }}
+		<p>{{ form.search.label }}{{ form.search() }}</p>
+		{{ form.submit() }}
+	</form>
+
+<div>
+	{% for message in get_flashed_messages() %}
+	{{ message }}
+	{% endfor %}
+</div>
+<hr>
+<h2> Movie Recommendation Info: </h2>
+
+{% if recommendations %}
+	<strong>Movie: {{ form.search.data }}</strong>
+	<br> <strong> Recommendations: </strong> {{ recommendations[:5] }}
+	
+{% else %}
+Movie did not search. Please try again.
+{% endif %}
+
+{% endblock %}

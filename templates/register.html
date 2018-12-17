@@ -1,0 +1,22 @@
+<h1>Sign up for a new user account</h1>
+{% extends 'index.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block main_content %}
+
+<form method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.email.label }} {{ form.email() }}
+	<br>
+	{{ form.username.label }} {{ form.username() }}
+	<br>
+    {{ form.password.label }} {{ form.password() }}
+    {{ form.password2.label }} {{ form.password2() }}
+	<br>
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+
+{% endblock %}

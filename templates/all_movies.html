@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block main_content %}
+
+<h2>All Movies</h2>
+
+<br>
+<ul>
+{% for movie in all_movies %}
+<li>
+  <h4>Title: {{ movie.title }}
+  	<br>
+  Plot: {{ movie.plot }}
+</li>
+<br>
+{% endfor %}
+</ul>
+
+{% if not all_movies %}
+There are no saved movies.
+{% endif %}
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+<a href="{{ url_for('movie_search')}}">Return to search for new movies</a>
+{% endblock %}

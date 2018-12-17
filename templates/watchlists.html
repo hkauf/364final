@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+
+{% block main_content %}
+
+<h1>My Movie Watchlists</h1>
+
+
+{% if not watchlists %}
+There are no watchlists.
+
+{% else %}
+
+<ul>
+{% for m in watchlists %}
+    <li>
+    	<a href="http://localhost:5000/watchlist/{{ m.id }}">{{ m.name }}</a>
+    	<br>
+		<form name = 'delete' method = 'POST' action = '/delete/{{ m.name }}'> {{ delete.hidden_tag() }} {{ delete.submit() }}</form> 
+		<form name = 'update' method = 'POST' action = '/update/{{ m.name }}'> {{update.hidden_tag() }} {{ update.submit() }}</form>
+    </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+{% endblock %}

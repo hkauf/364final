@@ -1,0 +1,37 @@
+<h1> Movie Search App </h1>
+{% if current_user.is_authenticated %}
+    <a href="{{ url_for('logout') }}">Sign Out {{current_user.username}}</a>
+{% else %}
+    <a href="{{ url_for('login') }}">Sign In</a>
+    <br>
+    <a href="{{ url_for('register') }}">Register Here</a>
+{% endif %}
+<br>
+<br>
+
+
+{% block main_content %}
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+
+{% endblock %}
+
+<p>--------</p><br>
+
+{% block navigation %}
+<ul><i>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('movie_search') }}"> Movie Search Form </a></li>
+    <li><a href="{{ url_for('search_recs') }}"> Recommendation Search Form </a></li>
+    <li><a href="{{ url_for('see_movies') }}">See all Movies</a></li>
+    <li><a href="{{ url_for('see_recs') }}">See all recommendations</a></li>
+    <li><a href="{{ url_for('create_watchlist') }}">Create a personal movie watchlist</a></li>
+    <li><a href="{{ url_for('watchlists') }}">See your watchlists</a></li>
+
+</ul>
+
+{% endblock %}

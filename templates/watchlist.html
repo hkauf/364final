@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+
+{% block main_content %}
+
+<h1>{{ watchlist.name }}</h1>
+
+{% for movie in movies %}
+	<li> Movie: {{ movie.title }} <br> Plot: {{ movie.plot }} </li>
+    <br><br>
+{% endfor %}
+
+
+{% endblock %}
